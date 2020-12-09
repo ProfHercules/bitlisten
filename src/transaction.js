@@ -11,11 +11,19 @@ function Transaction(bitcoins, highlight, currency, currencyName) {
 
     this.addImage(bubbleImage, this.width, this.height);
 
-    var bitcoinVal = bitcoins.toFixed(2);
+    var bitcoinVal = bitcoins.toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
     var bitcoinString;
 
     if (globalShowDollar === true) {
-      bitcoinString = "$" + (bitcoins * globalRate).toFixed(0);
+      bitcoinString =
+        "$" +
+        (bitcoins * globalRate).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
     } else if (bitcoinVal === "0.00") {
       bitcoinString = "&lt;<span class='bitcoinsymbol'>B</span>0.01";
     } else {
