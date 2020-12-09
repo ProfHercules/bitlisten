@@ -15,6 +15,8 @@ function Transaction(bitcoins, highlight, currency, currencyName) {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     });
+    console.log(bitcoins);
+    console.log(typeof bitcoins);
     var bitcoinString;
 
     if (globalShowDollar === true) {
